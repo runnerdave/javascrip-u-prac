@@ -1,0 +1,49 @@
+<script type="text/javascript">
+	
+var myFirstAttempt = function (num) {
+	return num + 1;
+}
+
+var useIt = myFirstAttempt;
+
+console.log(useIt(1));
+
+console.log("now with an array")
+
+var animals = [{name: 'Chispita', species: 'dog'},
+				{name: 'Homer', species: 'dog'},
+				{name: 'Gata', species: 'cat'}]
+
+console.log('first element' + animals[0].name)	
+
+var print = function(d) {
+	for (var i = d.length - 1; i >= 0; i--) {
+		console.log(d[i].name)
+	}
+}			
+
+console.log('#############before')
+print(animals);
+
+
+console.log('##############after')
+/*
+var isDog = function(dg){
+	return dg.species === 'dog'
+}
+
+var dogs = animals.filter(isDog)
+
+print(dogs);
+*/
+
+
+
+
+print(animals.filter(function(animal){
+	return animal.species === 'dog';
+}))
+
+
+
+</script>
