@@ -11,14 +11,25 @@ function multi(a, b) {
 
 
 function mathCalc(a, b, callback) {
-    callback();
+    return callback(a, b);
+    
 };
 
 
 
-mathCalc(1000, 10, add); // 1010
+
+var preResult = multi(2,1);
+
+console.log(preResult);
+
+
+var addResult = mathCalc(1000, 10, add); // 1010
 mathCalc(1000, 10, multi) // 10000
 
-var result = mathCalc(1000, 10, multi);
+var result = addResult;
+
+console.log(typeof addResult);
+
+console.log(addResult);
 
 </script>
