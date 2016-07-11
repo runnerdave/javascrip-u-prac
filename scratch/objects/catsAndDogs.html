@@ -1,0 +1,31 @@
+<script type="text/javascript">
+	var animals = [];
+	var cat = {name:'Robert', 
+				numberOfLegs:'4', 
+				makeSound: function() {return 'meaow'}, 
+				getLegs: function() {return this.numberOfLegs}};
+	var dog = {name:'Fido', 
+				numberOfLegs:'4', 	
+				makeSound: function() {return 'bark'}}
+	var chicken = {name:'Little', numberOfLegs:'2', makeSound: function() {return 'pio'}};
+
+	animals[0] = cat;
+	animals[1] = dog;
+	animals[2] = chicken;
+
+	console.log(animals[0].name + '|' + animals[0].numberOfLegs + '|' + animals[0].makeSound());
+
+	cat.name = 'Roberta';
+
+	console.log(animals[0].name + '|' + animals[0].numberOfLegs + '|' + animals[0].makeSound() + '|' + animals[0].getLegs());
+
+	var anotherCat = Object.create(cat);
+
+	anotherCat.name = 'Master';
+
+	console.log(anotherCat.name);
+
+	animals[3] = anotherCat;
+
+	console.log(animals[3].name + '|' + animals[3].numberOfLegs + '|' + animals[3].makeSound());
+</script>
