@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>another animal - example of construction functions</title>
+</head>
+<body>
+<script type="text/javascript">
+	//example of a constructor function for a class
+	function Vehicle(make, model, year, type) {
+		this.make = make;
+		this.model = model;
+		this.year = year;
+		this.type = type;
+	};
+	Vehicle.prototype.getMake = function(){return this.make};
+	Vehicle.prototype.getModel = function(){return this.model};
+	Vehicle.prototype.getYear = function(){return this.year};
+	Vehicle.prototype.getType = function(){return this.type};
+	Vehicle.prototype.toString = function(){return this.model + "|" + this.make + "|" + this.year + "|" + this.type};
+
+	var camaro = new Vehicle("Chevrolet", "Camaro", 1976, "coup\u00e6");
+
+	//example of a factory function for a class
+	function Car(make, model, year, type) {
+		carObj = {};
+		carObj.make = make;
+		carObj.model = model;
+		carObj.year = year;
+		carObj.type = type;
+		carObj.getMake = function(){return carObj.make};
+		carObj.getModel = function(){return carObj.model};
+		carObj.getYear = function(){return carObj.year};
+		carObj.getType = function(){return carObj.type};
+		carObj.toString = function(){return this.model + "|" + this.make + "|" + this.year + "|" + this.type};
+		return carObj;
+	}
+
+	var corvette = Car("Chevrolet", "Corvette", 1978, "coup\u00e6");
+
+
+	console.log(camaro.getModel() + ":");
+	console.log(camaro.toString());
+	console.log(corvette.getModel() + ":");
+	console.log(corvette.toString());
+
+	camaro = corvette;
+
+	console.log(camaro.getModel() + ":");
+	console.log(camaro.toString());
+	console.log(corvette.getModel() + ":");
+	console.log(corvette.toString());
+</script>
+</body>
+</html>
