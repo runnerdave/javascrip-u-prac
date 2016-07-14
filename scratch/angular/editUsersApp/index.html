@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>edit users app</title>
+	<script type="text/javascript" src="../libs/angular-1.2.1.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="css/users.css" />
+</head>
+<body>
+	<form name="myForm" ng-app="editUsersApp"  ng-controller="editUsersController">
+		<div>
+			<div ng-hide="editedUser == undefined">
+				<input type="text" name="userName" ng-model="editedUser.name" required />
+				<span class="error" ng-show="myForm.userName.$error.required">Required!</span>
+				<button ng-click="save(editedUser)" ng-hide="myForm.userName.$error.required">Save</button>
+			</div>
+		  <ul>
+		  	<li ng-repeat="user in users | orderBy: name">
+				<a href="#" ng-click="edit(user)">{{user.name}}</a>
+		  	</li>
+		  </ul>
+		
+		</div>
+	</form>
+</body>
+</html>
