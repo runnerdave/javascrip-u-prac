@@ -4,13 +4,19 @@
 	<title>bank app</title>
 	<script type="text/javascript" src="../libs/angular-1.2.1.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="css/bank.css" />
 </head>
 <body>
 	<div ng-app="bankApp">
 	  <ul ng-controller="balancesController">
 	  	<li ng-repeat="user in users | orderBy: ['balance','address']">
 			{{user.name}} - {{user.balance | currency}} - {{user.address}}
+			<a href="#" ng-click="remove(user)">Delete</a>
+			<a href="#" ng-click="edit(user)">Edit</a>
 	  	</li>
+	  	<li><input type="text" id="fullName" ng-model="current.name" value="{{current.name}}" />
+	  	<input type="text" id="balance" ng-model="current.balance" value="{{current.balance}}" /></li>
+	  	<li><button ng-click="addNew(current)">Add New User</button></li>
 	  </ul>
 	</div>
 
