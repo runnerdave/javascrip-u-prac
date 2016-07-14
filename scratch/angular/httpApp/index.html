@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>http app</title>
+	<script type="text/javascript" src="https://code.angularjs.org/1.2.1/angular.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>
+	<div ng-app="httpApp" ng-controller="httpController">
+		<input type="text" name="search" ng-model="search"/>
+		<ul>
+		<li ng-repeat="u in users | filter : search | orderBy: 'name'">{{u.name}} - {{u.email}}</li>
+		</ul>
+	</div>
+
+</body>
+</html>
