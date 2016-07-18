@@ -1,0 +1,26 @@
+<script type="text/javascript">
+	
+var animals = [
+  { name: 'Fluffykins', species: 'rabbit' },
+  { name: 'Caro',       species: 'dog' },
+  { name: 'Hamilton',   species: 'dog' },
+  { name: 'Harold',     species: 'fish' },
+  { name: 'Ursula',     species: 'cat' },
+  { name: 'Jimmy',      species: 'fish' }
+];
+
+var namesLoop = [];
+for (var k = animals.length - 1; k >= 0; k--) {
+	namesLoop.push(animals[k].name);
+}
+console.log('animals names with for loop:', namesLoop);
+
+var namesMap = animals.map(function(animal) {return animal.name});
+
+console.log('animals names with for map:', namesMap);
+
+var fullDescription = animals.map(function(a){return a.name + ' of species ' + a.species});
+
+console.log('full descrition for animals with map:' + fullDescription);
+
+</script>

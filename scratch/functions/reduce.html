@@ -1,0 +1,17 @@
+<script type="text/javascript">
+	var orders = [
+	  { amount: 250 },
+	  { amount: 400 },
+	  { amount: 100 },
+	  { amount: 325 }
+	];
+
+	var totalAmount = orders.reduce(function(sum, a) {
+		console.log('values(sum,order):', sum, a);
+		return sum + a.amount;
+	}, 0);
+
+	console.log('total amount:', totalAmount);
+
+
+</script>
