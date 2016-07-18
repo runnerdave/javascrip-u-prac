@@ -1,0 +1,16 @@
+{
+	"relatedLinks": [
+		{
+		    "linkURL": "http://www.rmit.edu.au/students",
+		    "target": "StudentsWebsiteWindow",
+		    "linkText": "Students Website",
+		    "groups": ["RMIT Training single courses", "HDR", "AUS VET", "AUS PREP", "AUS HE UG PG coursework", "Default"]
+		},
+		{
+		    "linkURL": "http://www.rmit.edu.au/oua",
+		    "target": "StudentsWebsiteWindow",
+		    "linkText": "OUA AT RMIT",
+		    "groups": ["OUA"]
+		}
+	]
+}
