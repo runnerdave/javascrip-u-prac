@@ -1,0 +1,18 @@
+<script type="text/javascript">
+function printFruits(fruits){
+  for (var i = 0; i < fruits.length; i++) {
+    (function(){
+      var current = i;                    // define new variable that will hold the current value of "i"
+      setTimeout( function(){
+        console.log( fruits[current] );   // this time the value of "current" will be different for each iteration
+      }, current * 1000 );
+    })();
+  }
+}
+
+printFruits(["Lemon", "Orange", "Mango", "Banana"]);
+
+/**
+	To fix the problem, we need to provide a new scope – for each function created by the loop – that will capture the current state of the i variable. We do that by closing the setTimeout() method in an IIFE, and defining a private variable to hold the current copy of i.
+*/
+</script>

@@ -1,0 +1,14 @@
+<script type="text/javascript">
+
+function printFruits(fruits){
+  for (var i = 0; i < fruits.length; i++) {
+    (function(current){
+      setTimeout( function(){
+        console.log( fruits[current] );
+      }, current * 1000 );
+    })( i );
+  }
+}
+
+printFruits(["Lemon", "Orange", "Mango", "Banana"]);
+</script>

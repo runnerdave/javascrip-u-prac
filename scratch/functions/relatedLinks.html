@@ -1,0 +1,73 @@
+<script type="text/javascript">
+
+var links = {
+	"relatedLinks": [
+		{
+		    "linkURL": "http://www.rmit.edu.au/students",
+		    "target": "StudentsWebsiteWindow",
+		    "linkText": "Students Website",
+		    "groups": ["RMIT Training single courses", "HDR", "AUS VET", "AUS PREP", "AUS HE UG PG coursework", "Default"]
+		},
+		{
+		    "linkURL": "http://www.rmit.edu.au/oua",
+		    "target": "StudentsWebsiteWindow",
+		    "linkText": "OUA AT RMIT",
+		    "groups": ["OUA"]
+		}
+	]
+};
+
+var permissions = ["AUS HE UG PG coursework"];
+
+console.log(links.relatedLinks);
+
+console.log(links.relatedLinks[0].groups);
+
+var linkCeroGroupsArray = links.relatedLinks[0].groups;
+var linkOneGroupsArray = links.relatedLinks[1].groups;
+
+console.log(linkCeroGroupsArray.find(function(group) {
+								return group === "HDR"}));
+
+console.log(linkCeroGroupsArray.indexOf(function(group) {
+								return group === "HDR"}));
+
+var isAllowedForHDR = function(group) {
+					return group === 'HDR';
+				};
+
+var isAllowedForceTrue = function(group) {
+					return true;
+				};		
+
+var isAllowedForGroups = function(permissionsArray, groupsArray)	{
+							var allowed = false;
+							for (var i = groupsArray.length - 1; i >= 0; i--) {
+								for (var j = permissionsArray.length - 1; j >= 0; j--) {
+									if (permissionsArray[j] === groupsArray[i]) {
+										allowed = true;
+									}										
+								};
+							};
+							return allowed;
+						 }
+						 
+	
+console.log("is UG isAllowedForHDR:" + isAllowedForHDR('UG'));
+
+console.log("is HDR isAllowedForHDR:" + isAllowedForHDR('HDR'));
+
+console.log("is HDR isAllowedForceTrue:" + isAllowedForceTrue('HDR'));
+
+console.log("linkCeroGroupsArray is allowed for groups:" + isAllowedForGroups(permissions, linkCeroGroupsArray));
+
+console.log("linkOneGroupsArray is allowed for groups:" + isAllowedForGroups(permissions, linkOneGroupsArray));
+
+/*
+print(links.filter(function(animal){
+	return animal.species === 'dog';
+}))
+*/
+
+
+</script>	

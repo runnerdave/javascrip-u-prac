@@ -1,0 +1,23 @@
+<script type="text/javascript">
+// variant 1
+
+(function () {
+  alert('Woohoo1!');
+})();
+
+// variant 2
+
+(function () {
+  alert('Woohoo2!');
+}());
+
+//assigned to a variable
+var sayWoohoo = function () {
+  alert('Woohoo3!');
+}();
+
+(function (name, profession) {
+  console.log("My name is " + name + ". I'm an " + profession + ".");
+})("Jackie Chan", "actor");   // output: My name is Jackie Chan. I'm an actor.
+
+</script>

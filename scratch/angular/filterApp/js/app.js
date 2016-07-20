@@ -10,7 +10,11 @@ app.controller("httpController", function($scope, $http) {
 		$http.get("http://jsonplaceholder.typicode.com/comments?postId=" + postingid)
 		.success(function(postcomments) {
 			$scope.comments = postcomments;
+			debugger;
+			console.log("thee");
 		}
 		);
 	};
+
+
 });

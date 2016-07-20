@@ -1,0 +1,17 @@
+<script type="text/javascript">
+function printFruits(fruits){
+  for (var i = 0; i < fruits.length; i++) {
+    setTimeout( function(){
+      console.log( fruits[i] );
+    }, i * 1000 );
+  }
+}
+
+printFruits(["Lemon", "Orange", "Mango", "Banana"]);
+
+/**
+You may have expected that the names of the fruits would be printed one after another at one-second intervals. But, in practice, the output is four times “undefined”. So, where is the catch?
+
+The catch is that the value of i, inside the console.log() statement, is equal to 4 for each iteration of the loop. And, since we have nothing at index 4 in our fruits array, the output is “undefined”. (Remember that, in JavaScript, an array’s index starts at 0.) The loop terminates when i < fruits.length returns false. So, at the end of the loop the value of i is 4. That most recent version of the variable is used in all the functions produced by the loop. All this happens because closures are linked to the variables themselves, not to their values.
+*/
+</script>

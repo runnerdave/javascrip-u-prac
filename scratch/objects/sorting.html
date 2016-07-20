@@ -1,0 +1,43 @@
+<script type="text/javascript">
+	var announcement1 = {announcementId: 6647, 
+						title: "Industrial action suspended - results available", 
+						content: "jjjj", 
+						important: false,
+						expiryDate:"20 July 2016"};
+
+	var announcement2 = {announcementId: 6648, 
+						title: "test -- results available", 
+						content: "jjjj", 
+						important: true,
+						expiryDate:"22 July 2016"};		
+
+	var announcement3 = {announcementId: 6649, 
+						title: "test 3", 
+						content: "jjjj", 
+						important: false,
+						expiryDate:"18 July 2016"};
+
+	var announcements = [];
+	announcements[0] = announcement1;
+	announcements[1] = announcement2;
+	announcements[2] = announcement3;	
+
+	announcementsUnsorted = announcements;																	
+
+	console.log(announcementsUnsorted);
+
+	console.log("after the sorting");
+
+	announcementsSorted = announcements.sort(compareImportant);
+
+	console.log(announcements.sort(compareImportant));
+
+	function compareImportant(a,b) {
+	  if (a.important > b.important)
+	    return -1;
+	  if (a.important < b.important)
+	    return 1;
+	  return 0;
+	}
+
+</script>
