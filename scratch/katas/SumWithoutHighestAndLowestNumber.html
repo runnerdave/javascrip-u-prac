@@ -1,0 +1,25 @@
+<script type="text/javascript">
+	/**
+	Sum all the numbers of the array except the highest and the lowest element.
+	(Only one element at each edge, even if there are more than one with the same value!)
+
+	Example: { 6, 2, 1, 8, 10 } => 16
+
+	If array is empty or null, or if only 1 Element exists, return 0.
+	*/
+
+	function sumArray(array) {
+		var sum = 0	  		
+		if (array != null && array.length > 1) {
+			array.sort(function(a, b) {
+				return a - b;
+			});
+			for (var i = array.length - 2; i >= 1; i--) {
+				sum += array[i];
+			};
+		}
+		return sum; 
+	}
+
+	console.log(sumArray([ 6, 2, 1, 8, 10 ]));
+	</script>
