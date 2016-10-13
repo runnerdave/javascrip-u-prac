@@ -69,5 +69,22 @@ print(links.filter(function(animal){
 }))
 */
 
+var kpGroups = ["KP","NewOffshoreStudent","NewOnshoreStudent"];
+
+console.log( "kpGroups has KP?" + kpGroups.includes('KP'));
+
+
+
+console.log( "permissions has KP?" + permissions.includes("KP"));
+
+console.log("before filtering:" + kpGroups);
+
+kpGroups.filter(isKP);
+
+console.log("after filtering:" + kpGroups.filter(isKP));
+
+function isKP (obj) {
+	return obj === "KP";
+}  
 
 </script>	

@@ -1,0 +1,29 @@
+<script type="text/javascript">
+	var firstOfDecember = new Date();
+	firstOfDecember.setMonth(11, 1);
+	firstOfDecember.setHours(0, 0, 0, 0);
+
+	var lastOfDecember = new Date();
+	lastOfDecember.setMonth(11, 31);
+	lastOfDecember.setHours(23, 59, 59, 0);
+
+	var transportConcessionValidDateRange = {
+		startDate: firstOfDecember,
+		endDate: lastOfDecember
+	};
+
+	function isDateInRange(today) {
+		return (today >= transportConcessionValidDateRange.startDate && today <= transportConcessionValidDateRange.endDate);
+	}
+
+	var dateOfToday = new Date(2016,11,31,15,08,45);
+	console.log(dateOfToday);
+	if(isDateInRange(dateOfToday)){
+		
+		console.log("Concession not available at this time. Please try again after 1 January next year.");
+	}
+	else {
+		console.log("Good to show");
+	}
+
+</script>

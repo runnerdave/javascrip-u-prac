@@ -14,6 +14,26 @@ cycleLength - Integer representing the length of the cycle in days
 If the today is later from last than the cycleLength, the function should return true. We consider it to be late if the number of passed days is larger than the cycleLength. Otherwise return false.
 */
 
+var firstOfDecember = new Date();
+firstOfDecember.setMonth(11, 1);
+firstOfDecember.setHours(0, 0, 0, 0);
+
+var lastOfDecember = new Date();
+lastOfDecember.setMonth(11, 31);
+lastOfDecember.setHours(0, 0, 0, 0);
+
+
+
+var dateRange = {
+	startDate: new Date(2016, 6, 1),
+	endDate: new Date(2016, 6, 31)
+}
+
+var decemberDateRange = {
+	startDate: firstOfDecember,
+	endDate: lastOfDecember
+}
+
 function periodIsLate(last, today, cycleLength)
 {
 	var onTime = false;
@@ -30,6 +50,24 @@ console.log('should be false:', periodIsLate(new Date(2016, 6, 13), new Date(201
 
 console.log('should be false:', periodIsLate(new Date(2016, 6, 13), new Date(2016, 7, 16), 35), false);
 console.log('should be true:', periodIsLate(new Date(2016, 6, 13), new Date(2016, 7, 16), 28), true);
+
+console.log('testing isDateInRange with 29/07/16 should be true:', isDateInRange(new Date(2016, 6, 29), dateRange));
+console.log('testing isDateInRange with 1/08/16 should be false:', isDateInRange(new Date(2016, 7, 1), dateRange));
+console.log('testing isDateInRange with 29/06/16 should be false:', isDateInRange(new Date(2016, 5, 29), dateRange));
+console.log('testing isDateInRange with 1/07/16 should be true:', isDateInRange(new Date(2016, 6, 1), dateRange));
+console.log('testing isDateInRange with 31/07/16 should be true:', isDateInRange(new Date(2016, 6, 31), dateRange));
+
+console.log('testing isDateInRange with 31/07/16 in December should be false:', isDateInRange(new Date(2016, 6, 31), decemberDateRange));
+console.log('testing isDateInRange with 23/12/16 in December should be true:', isDateInRange(new Date(2016, 11, 23), decemberDateRange));
+console.log('testing isDateInRange with 31/12/16 in December should be true:', isDateInRange(new Date(2016, 11, 31), decemberDateRange));
+console.log('testing isDateInRange with 1/12/16 in December should be true:', isDateInRange(new Date(2016, 11, 1), decemberDateRange));
+console.log('testing isDateInRange with 30/11/16 in December should be false:', isDateInRange(new Date(2016, 10, 30), decemberDateRange));
+
+console.log('show first of december:' + firstOfDecember);
+
+function isDateInRange(today, myDateRange) {
+	return (today >= myDateRange.startDate && today <= myDateRange.endDate);
+}
 
 /*
 
