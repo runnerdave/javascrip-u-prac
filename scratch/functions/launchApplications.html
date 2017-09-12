@@ -1,0 +1,83 @@
+<script type="text/javascript">
+
+var launchApps = {
+	"launchApplications": [
+		{
+		    "linkURL": "https://sams.rmit.edu.au/ps/signon.html",
+		    "target": "EnrolOnlineWindow",
+		    "linkText": "Enrolment online",
+		    "weight": "2",
+		    "groups": ["AUS HE UG PG coursework", "AUS PREP", "AUS VET", "Global partner PREP", "Global partner VET", "Global ptnr UG PG coursework", "HDR", "OUA", "KP"]
+		},
+		{
+		    "linkURL": "https://mydesktop.rmit.edu.au",
+		    "target": "mydesktop",
+		    "linkText": "myDesktop",
+		    "weight": "1",
+		    "groups": ["AUS HE UG PG coursework", "AUS PREP", "AUS VET", "HDR", "OUA", "RMIT Training AUS ELICOS", "RMIT Training single courses", "KP"]
+		},
+		{
+		    "linkURL": "https://mydrive.rmit.edu.au",
+		    "target": "myDriveWindow",
+		    "linkText": "myDrive",
+		    "weight": "3",
+		    "groups": ["AUS HE UG PG coursework", "AUS PREP", "AUS VET", "OUA", "HDR", "RMIT Training AUS ELICOS", "RMIT Training single courses", "KP"]
+		},
+		{
+		    "linkURL": "http://emedia.rmit.edu.au/careerstoolkit/",
+		    "target": "CareersToolkitWindow",
+		    "linkText": "Careers toolkit",
+		    "weight": "4",
+		    "groups": ["AUS HE UG PG coursework", "AUS PREP", "AUS VET", "Global partner PREP", "Global partner VET", "Global ptnr UG PG coursework", "HDR", "KP"]
+		},
+		{
+		    "linkURL": "https://rmit.service-now.com/saml_redirector.do?glide_sso_id=7e28c0dd6fbe46004267c6168d3ee4df&sysparm_uri=x_rmit2_admissions_rmit-ga-request.do%3Freq%3Dsso%26sysparm_direct%3Dtrue",
+		    "target": "ApplyDirectWindow",
+		    "weight": "5",
+		    "linkText": "Apply for a program",
+		    "groups": ["AUS HE UG PG coursework", "AUS VET", "AUS PREP", "HDR"]
+		},
+		{
+		    "linkURL": "https://surveys.rmit.edu.au/Blue",
+		    "target": "studentSurveysWindow",
+		    "linkText": "Student Surveys",
+		    "weight": "6",
+		    "groups": ["AUS HE UG PG coursework", "AUS PREP", "AUS VET", "Global partner PREP", "Global partner VET", "Global ptnr UG PG coursework", "HDR", "NewHdrStudent", "NewOffshoreStudent", "NewOnshoreStudent", "KP"]
+		},
+		{
+		    "linkURL": "http://housing.rmit.edu.au/",
+		    "target": "SearchForHousingWindow",
+		    "linkText": "Housing for students",
+		    "weight": "8",
+		    "groups": ["AUS HE UG PG coursework", "AUS PREP", "AUS VET", "HDR"]
+		},
+		{
+		    "linkURL": "https://specon.rmit.edu.au/specon/login.jsf",
+		    "target": "specon",
+		    "linkText": "Special Consideration",
+		    "weight": "7",
+		    "groups": ["AUS HE UG PG coursework", "AUS PREP", "AUS VET", "HDR", "OUA", "Global partner PREP", "Global partner VET", "Global ptnr UG PG coursework", "KP"]
+		}
+	]
+};
+
+var permissions = ["AUS HE UG PG coursework"];
+
+console.log(launchApps.launchApplications);
+
+var sortedLaunchApps = launchApps.launchApplications.sort(function(a,b){
+															if(a.weight > b.weight) {
+																return 1;
+															}
+															if(a.weight < b.weight) {
+																return -1;
+															}
+															return 0;
+});
+
+console.log(sortedLaunchApps);
+
+
+
+
+</script>
