@@ -4,7 +4,11 @@ or stub the browser with mocha
 TODO: use the catapi try using the id 'brl': http://thecatapi.com/api/images/get?image_id=brl
 
 install mocha:
-sudo npm install -g mocha
+$ sudo npm install -g mocha
+
+running the example: 
+$ mocha dependencyInjection.js
+
 */
 const assert = require('assert');
 
