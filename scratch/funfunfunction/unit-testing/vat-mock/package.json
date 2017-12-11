@@ -1,0 +1,16 @@
+{
+  "name": "vat-mock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "order-total.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch *.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
+}
