@@ -8,5 +8,6 @@ const result =
   })
   .then(response => response.json())
   .then(data => data.rates.standard.value)
+  .catch(e => console.error(e))
 
 result
