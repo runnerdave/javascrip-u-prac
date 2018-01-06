@@ -2,3 +2,6 @@
 .DS_Store
 
 node_modules/
+scratch/typescript/**/*.js
+*.map
+.vscode/
