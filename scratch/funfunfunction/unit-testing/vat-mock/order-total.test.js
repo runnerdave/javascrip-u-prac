@@ -2,6 +2,7 @@ const orderTotal = require('./order-total')
 
 const emptyFunction = () => {}
 
+//simple, without response parsing
 it('calls vatapi.com correctly', () => {
   let isFakeFetchCalled = false
   const fakeFetch = (url) => {
@@ -18,7 +19,31 @@ it('calls vatapi.com correctly', () => {
   })
 })
 
-it('if country code specified')
+//with response parsing (Part 5, video: https://www.youtube.com/watch?v=ZbModC5pqv0)
+it.only('parses the response correctly', () => {
+  let isFakeFetchCalled = false
+  const fakeFetch = (url) => {
+    expect(url).toBe('https://vatapi.com/v1/country-code-check?code=DE')
+    isFakeFetchCalled = true
+    return Promise.resolve({
+      json: () => Promise.resolve({
+        rates: {
+          standard: {
+            value: 19
+          }
+        }
+      })
+    })
+  }
+  return orderTotal(fakeFetch, {
+    country: 'DE',
+    items: [
+      { 'name': 'Dragon waffles', price: 20, quantity: 2 }
+    ]
+  }).then(result => {
+    expect(result).toBe(20*2*1.19)
+  })
+})
 
 it('Quantity', () =>
   orderTotal(emptyFunction, {
