@@ -1,24 +1,20 @@
 // from http://vatapi.com/#example_country_code
 
 function orderTotal(fetch, order) {
+  const sumOrderItems = order =>
+    order.items.reduce(
+      (prev, cur) => cur.price * (cur.quantity || 1) + prev,
+      0
+    );
   if (order.country) {
     return fetch(
       "https://vatapi.com/v1/country-code-check?code=" + order.country
     )
       .then(response => response.json())
       .then(data => data.rates.standard.value)
-      .then(
-        vat =>
-          order.items.reduce(
-            (prev, cur) => cur.price * (cur.quantity || 1) + prev,
-            0
-          ) *
-          (1 + vat / 100)
-      );
+      .then(vat => sumOrderItems(order) * (1 + vat / 100));
   }
-  return Promise.resolve(
-    order.items.reduce((prev, cur) => cur.price * (cur.quantity || 1) + prev, 0)
-  );
+  return Promise.resolve(sumOrderItems(order));
 }
 
 module.exports = orderTotal;
