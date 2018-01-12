@@ -1,3 +1,5 @@
+// $ export VAT_API_KEY=look in pwd db
+
 const fetch = require('node-fetch')
 
 const result =
@@ -6,8 +8,16 @@ const result =
       'apikey': process.env.VAT_API_KEY
     }
   })
-  .then(response => response.json())
-  .then(data => data.rates.standard.value)
+  .then(response => {
+    const myResponse = response.json();
+    console.log(myResponse);
+    return myResponse;
+  })
+  .then(data => {
+    const myValue = data.rates.standard.value;
+    console.log(data);
+    return myValue;
+  })
   .catch(e => console.error(e))
 
 result
