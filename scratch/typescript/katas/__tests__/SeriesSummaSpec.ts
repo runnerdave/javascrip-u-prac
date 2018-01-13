@@ -2,12 +2,26 @@ import SeriesSumma from '../SeriesSumma';
 
 describe('test summa of series', () => {
     it('sums the simplest series', () => {
-        expect(SeriesSumma.sumSeries(1)).toBe(1);
-        expect(SeriesSumma.sumSeries(2)).toBe(1.25);
-        expect(SeriesSumma.sumSeries(3)).toBe(1.39);
-        expect(SeriesSumma.sumSeries(5)).toBe(1.57);
-        expect(SeriesSumma.sumSeries(10)).toBe(1.81);
-        expect(SeriesSumma.sumSeries(20)).toBe(2.05);
+        expect(SeriesSumma.sumSeries(0)).toBe("0.00");
+        expect(SeriesSumma.sumSeries(1)).toBe("1.00");
+        expect(SeriesSumma.sumSeries(2)).toBe("1.25");
+        expect(SeriesSumma.sumSeries(3)).toBe("1.39");
+        expect(SeriesSumma.sumSeries(5)).toBe("1.57");
+        expect(SeriesSumma.sumSeries(7)).toBe("1.68");
+        expect(SeriesSumma.sumSeries(10)).toBe("1.81");
+        expect(SeriesSumma.sumSeries(14)).toBe("1.92");
+        expect(SeriesSumma.sumSeries(15)).toBe("1.94");
+        expect(SeriesSumma.sumSeries(20)).toBe("2.04");
+        expect(SeriesSumma.sumSeries(228)).toBe("2.85");
+        expect(SeriesSumma.sumSeries(235)).toBe("2.86");
+    })
+});
+
+describe('test the simpler version', () => {
+    it('tests the sums with the simpler version', () => {
+        expect(SeriesSumma.sumSeriesSimpler(0)).toBe("0.00");
+        expect(SeriesSumma.sumSeriesSimpler(1)).toBe("1.00");
+        expect(SeriesSumma.sumSeriesSimpler(235)).toBe("2.86");
     })
 });
 
@@ -40,6 +54,6 @@ describe('test series formula inverse value', () => {
 })
 
 describe('test rounding', () => {
-    expect(SeriesSumma.roundMe(1.289)).toBe(1.29);
+    expect(SeriesSumma.roundMe(1.289)).toBe(1.289);
     expect(SeriesSumma.roundMe(1.000000000000002)).toBe(1);
 })
