@@ -53,6 +53,8 @@ describe('test series formula inverse value', () => {
     })
 })
 
+//GIST ID : b955dfddd6577f325b64c71b67e4fc0f
+
 describe('test rounding', () => {
     expect(SeriesSumma.roundMe(1.289)).toBe(1.289);
     expect(SeriesSumma.roundMe(1.000000000000002)).toBe(1);
