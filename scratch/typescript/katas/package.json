@@ -1,0 +1,30 @@
+{
+  "name": "katas",
+  "version": "1.0.0",
+  "description": "directory to do katas in typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch"
+  },
+  "author": "David Jimenez",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-jest": "^22.0.1"
+  },
+  "dependencies": {
+    "jest": "^22.0.5",
+    "typescript": "^2.6.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
+  }
+}
