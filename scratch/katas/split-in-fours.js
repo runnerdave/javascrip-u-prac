@@ -21,8 +21,8 @@ const splitMe = (value) => {
     return result;
 }
 
-const splitMeMapReduce = (value) => {
-    return value.split('').filter((element, index, array) => (index % 4 === 0));
+const splitMeRegex = (string) => {
+    return string.match(/.{1,4}/g).join(' ');
 }
 
 describe('Testing the splitting of a string into fours', () => {
@@ -34,6 +34,6 @@ describe('Testing the splitting of a string into fours', () => {
 		assert.equal('6456 4597 8987 9788', splitMe(creditCardLike));
     });
     it('should return string split in fours', () => {
-		assert.equal('6456 4597 8987 9788', splitMeMapReduce(creditCardLike).join(''));
+		assert.equal('6456 4597 8987 9788', splitMeRegex(creditCardLike));
     });
 });
