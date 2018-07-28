@@ -20,13 +20,23 @@ class PalindromeChecker {
     return true;
   }
 
+  /**
+   * simpler version, however it does not break on first fail check.
+   * TODO: find out how to implement a break in the loop, for ... of 
+   * did not work: https://stackoverflow.com/questions/2641347/how-to-short-circuit-array-foreach-like-calling-break#2641374
+   * @param stringToCheck 
+   */
   public static testCool(stringToCheck: string): boolean {
     const stringArray = stringToCheck.split("").filter(x => x !== " ");
-    const stringArrayReversed = stringArray.reverse;
+    const stringArrayReversed = stringArray.slice().reverse();
+    let isPalindrome = true;
     stringArray.forEach((character, i) => {
-        console.info(`${i}`);
+      if (character.toUpperCase() !== stringArrayReversed[i].toUpperCase()) {
+        isPalindrome = false;
+        return;
+      }
     });
-    return true;
+    return isPalindrome;
   }
 }
 
