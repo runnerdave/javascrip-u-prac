@@ -19,6 +19,15 @@ class PalindromeChecker {
     }
     return true;
   }
+
+  public static testCool(stringToCheck: string): boolean {
+    const stringArray = stringToCheck.split("").filter(x => x !== " ");
+    const stringArrayReversed = stringArray.reverse;
+    stringArray.forEach((character, i) => {
+        console.info(`${i}`);
+    });
+    return true;
+  }
 }
 
 export default PalindromeChecker;

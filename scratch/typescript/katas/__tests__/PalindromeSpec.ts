@@ -17,3 +17,9 @@ describe("palindromes check", () => {
         expect(PalindromeChecker.test("Satan oscillate my metallic sonatas")).toBe(true);
     });
 });
+
+describe("palindromes check cool function", () => {
+    it("verifies if a word is a palindrome with the cool function", () => {
+        expect(PalindromeChecker.testCool("Satan oscillate my metallic sonatas")).toBe(true);
+    });
+});
