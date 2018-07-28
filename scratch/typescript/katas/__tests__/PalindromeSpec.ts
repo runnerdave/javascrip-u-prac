@@ -24,3 +24,12 @@ describe("palindromes check cool function", () => {
         expect(PalindromeChecker.testCool("Satan")).toBe(false);
     });
 });
+
+describe("palindromes check single loop function", () => {
+    it("verifies if a word is a palindrome with the single loop function", () => {
+        expect(PalindromeChecker.testSingleLoop("Satan oscillate my metallic sonatas")).toBe(true);
+        expect(PalindromeChecker.testSingleLoop("Satan")).toBe(false);
+        expect(PalindromeChecker.testSingleLoop("o")).toBe(true);
+        expect(PalindromeChecker.testSingleLoop("Alli si Maria avisa y asi va a ir a mi silla")).toBe(true);
+    });
+});

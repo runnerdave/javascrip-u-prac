@@ -22,9 +22,9 @@ class PalindromeChecker {
 
   /**
    * simpler version, however it does not break on first fail check.
-   * TODO: find out how to implement a break in the loop, for ... of 
+   * TODO: find out how to implement a break in the loop, for ... of
    * did not work: https://stackoverflow.com/questions/2641347/how-to-short-circuit-array-foreach-like-calling-break#2641374
-   * @param stringToCheck 
+   * @param stringToCheck
    */
   public static testCool(stringToCheck: string): boolean {
     const stringArray = stringToCheck.split("").filter(x => x !== " ");
@@ -37,6 +37,19 @@ class PalindromeChecker {
       }
     });
     return isPalindrome;
+  }
+
+  public static testSingleLoop(stringToCheck: string): boolean {
+    const stringArray = stringToCheck.split("").filter(x => x !== " ");
+    const stringLength = stringArray.length;
+    for (let index = 0; index < stringLength / 2; index++) {
+      if (
+        stringArray[index].toUpperCase() !==
+        stringArray[(stringLength - 1) - index].toUpperCase()
+      )
+        return false;
+    }
+    return true;
   }
 }
 
