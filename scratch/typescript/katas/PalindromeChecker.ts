@@ -51,6 +51,18 @@ class PalindromeChecker {
     }
     return true;
   }
+
+  public static testRecursive(stringToCheck: string): boolean {
+    stringToCheck = stringToCheck.toUpperCase().replace(/ /gi, "");
+    if (stringToCheck.length === 0 || stringToCheck.length === 1) {
+      return true;
+    }
+    if (stringToCheck.charAt(0) !== stringToCheck.charAt(stringToCheck.length - 1)) {
+      return false;
+    } else {
+      return this.testRecursive(stringToCheck.substring(1, stringToCheck.length - 1));
+    }
+  }
 }
 
 export default PalindromeChecker;

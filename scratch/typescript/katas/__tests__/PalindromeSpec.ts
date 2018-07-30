@@ -33,3 +33,12 @@ describe("palindromes check single loop function", () => {
         expect(PalindromeChecker.testSingleLoop("Alli si Maria avisa y asi va a ir a mi silla")).toBe(true);
     });
 });
+
+describe("palindromes check recursive function", () => {
+    it("verifies if a word is a palindrome with the recursive function", () => {
+        expect(PalindromeChecker.testRecursive("Satan")).toBe(false);
+        expect(PalindromeChecker.testRecursive("o")).toBe(true);
+        expect(PalindromeChecker.testRecursive("Satan oscillate my metallic sonatas")).toBe(true);
+        expect(PalindromeChecker.testRecursive("Alli si Maria avisa y asi va a ir a mi silla")).toBe(true);
+    });
+});
