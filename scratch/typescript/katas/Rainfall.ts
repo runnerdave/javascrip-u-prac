@@ -1,5 +1,6 @@
 /**
- *  dataand data1 are two strings with rainfall records of a few cities for months from January to December. 
+ * https://www.codewars.com/kata/rainfall/train/typescript 
+ * dataand data1 are two strings with rainfall records of a few cities for months from January to December. 
  * The records of towns are separated by \n. The name of each town is followed by :.
 
     data and towns can be seen in "Your Test Cases:".
