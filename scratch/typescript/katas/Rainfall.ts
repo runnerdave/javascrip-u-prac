@@ -28,25 +28,46 @@
 export default class Rainfall {
 
     public static mean = (town: string, strng: string) => {
-        const dataArray = strng.split("\n");
-        console.info(dataArray);
-        let townRainfall;
+        const townRainfall = Rainfall.getTownRainfallRecords(town, strng);
+        if (townRainfall === "-1") {
+            return -1;
+        }
+        const recordsArray = Rainfall.extractRainfallRecords(townRainfall);
+        const avg = recordsArray.reduce((a, b) => a + b) / recordsArray.length;
+        return avg;
+    }
+
+    public static variance = (town: string, strng: string) => {
+        const townRainfall = Rainfall.getTownRainfallRecords(town, strng);
+        if (townRainfall === "-1") {
+            return -1;
+        }
+        const recordsArray = Rainfall.extractRainfallRecords(townRainfall);
+        const avg = Rainfall.mean(town, strng);
+        const squareDiff = recordsArray.map(value => Math.pow(value - avg, 2));
+        const variance = squareDiff.reduce((a, b) => a + b, 0) / recordsArray.length;
+        return variance;
+    }
+
+    private static getTownRainfallRecords = (town: string, data: string) => {
+        const dataArray = data.split("\n");
+        let townRainfall = "";
         dataArray.forEach(x => {
-            if (x.indexOf("Rome") > -1) {
+            if (x.indexOf(town) > -1) {
                 townRainfall = x.split(":")[1];
+            } else {
+                return "-1";
             }
         });
-        // console.info(townRainfall);
-        let townRainfallObj = {}
-        townRainfall.split(",").forEach(x => {
-            let rainObj = x.split(" ");
-            townRainfallObj[rainObj[0]] = rainObj[1];
+        return townRainfall;
+    };
+
+    private static extractRainfallRecords = (records: string) => {
+        let recordsArray: number[] = [];
+        records.split(",").forEach(x => {
+            let rainfallRecord = x.split(" ");
+            recordsArray.push(parseFloat(rainfallRecord[1]));
         });
-        console.info(townRainfallObj)
-        return 1;
-    }
-    public static variance = (town: string, strng: string) => {
-        // your code
-        return 1.1;
-    }
+        return recordsArray;
+    };
 }

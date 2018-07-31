@@ -31,7 +31,7 @@ const data1 =
      "Lima:Jan 11.2,Feb 10.9,Mar 10.7,Apr 10.4,May 10.6,Jun 11.8,Jul 14.4,Aug 13.1,Sep 23.3,Oct 1.7,Nov 0.5,Dec 10.7";
 
 describe("Fixed Tests", function() {
-    fit("Basic tests: mean for data", function() {
+    it("Basic tests: mean for data", function() {
         assertFuzzyEquals(Rainfall.mean("London", data), 51.199999999999996); 
         assertFuzzyEquals(Rainfall.mean("Beijing", data), 52.416666666666664);
     });
