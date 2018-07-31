@@ -36,9 +36,13 @@ export default class Rainfall {
                 townRainfall = x.split(":")[1];
             }
         });
-        console.info(townRainfall);
-        
-
+        // console.info(townRainfall);
+        let townRainfallObj = {}
+        townRainfall.split(",").forEach(x => {
+            let rainObj = x.split(" ");
+            townRainfallObj[rainObj[0]] = rainObj[1];
+        });
+        console.info(townRainfallObj)
         return 1;
     }
     public static variance = (town: string, strng: string) => {
