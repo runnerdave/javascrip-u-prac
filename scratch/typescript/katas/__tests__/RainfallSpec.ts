@@ -30,6 +30,11 @@ const data1 =
      "Beijing:Jan 13.9,Feb 14.7,Mar 18.2,Apr 18.4,May 43.0,Jun 88.1,Jul 224.3,Aug 170.0,Sep 58.4,Oct 38.0,Nov 19.3,Dec 2.7" + "\n" +
      "Lima:Jan 11.2,Feb 10.9,Mar 10.7,Apr 10.4,May 10.6,Jun 11.8,Jul 14.4,Aug 13.1,Sep 23.3,Oct 1.7,Nov 0.5,Dec 10.7";
 
+const data2 =
+     "Rome:Jan $$$$,Feb 73.2,Mar 80.3,Apr 55.7,May 53.0,Jun 36.4,Jul 17.5,Aug 27.5,Sep 60.9,Oct 147.7,Nov 121.0,Dec 97.9" + "\n" +
+     "NY:Jan 128.7,Feb 121.8,Mar 151.9,Apr 93.5,May 98.8,Jun 93.6,Jul 142.2,Aug 131.8,Sep 92.0,Oct 82.3,Nov 107.8,Dec 94.2";
+     
+
 describe("Fixed Tests", function() {
     it("Basic tests: mean for data", function() {
         assertFuzzyEquals(Rainfall.mean("London", data), 51.199999999999996); 
@@ -40,5 +45,14 @@ describe("Fixed Tests", function() {
     it("Basic tests: variance for data", function() {
         assertFuzzyEquals(Rainfall.variance("London", data), 57.42833333333374);
         assertFuzzyEquals(Rainfall.variance("Beijing", data), 4808.37138888889);
+    });
+});
+describe("Tests with invalid data", function() {
+    fit("Basic tests: mean for invalid data", function() {
+        let avg = Rainfall.mean("Rome", data2);
+        console.info(avg)
+        // assertFuzzyEquals(avg, 70.1); 
+        avg = Rainfall.mean("Beijing", data2);
+        assertFuzzyEquals(avg, -1);
     });
 });
