@@ -34,7 +34,7 @@ export default class Rainfall {
             return -1;
         }
         const recordsArray = Rainfall.extractRainfallRecords(townRainfall);
-        const avg = recordsArray.reduce((a, b) => a + b) / recordsArray.length;
+        const avg = recordsArray.reduce((a, b) => a + b, 0) / recordsArray.length;
         return avg;
     }
 
@@ -65,7 +65,6 @@ export default class Rainfall {
         let recordsArray: number[] = [];
         records.split(",").forEach(x => {
             let rainfallRecord = x.split(" ");
-            console.info(rainfallRecord)
             if (!isNaN(parseFloat(rainfallRecord[1])))
                 recordsArray.push(parseFloat(rainfallRecord[1]));
         });
