@@ -33,7 +33,6 @@ export default class Rainfall {
         if (townRainfall === "-1") {
             return -1;
         }
-        console.info(`townRainfall: ${townRainfall}`)
         const recordsArray = Rainfall.extractRainfallRecords(townRainfall);
         const avg = recordsArray.reduce((a, b) => a + b) / recordsArray.length;
         return avg;
@@ -51,20 +50,18 @@ export default class Rainfall {
         return variance;
     }
 
-    private static getTownRainfallRecords = (town: string, data: string) => {
+    public static getTownRainfallRecords = (town: string, data: string) => {
         const dataArray = data.split("\n");
-        let townRainfall = "";
+        let townRainfall = "-1";
         dataArray.forEach(x => {
             if (x.indexOf(town) > -1) {
-                townRainfall = x.split(":")[1];
-            } else {
-                return "-1";
+                townRainfall =  x.split(":")[1];
             }
         });
         return townRainfall;
     };
 
-    private static extractRainfallRecords = (records: string) => {
+    public static extractRainfallRecords = (records: string) => {
         let recordsArray: number[] = [];
         records.split(",").forEach(x => {
             let rainfallRecord = x.split(" ");

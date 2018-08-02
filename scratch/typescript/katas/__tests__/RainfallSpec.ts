@@ -48,7 +48,7 @@ describe("Fixed Tests", function() {
     });
 });
 describe("Tests with invalid data", function() {
-    fit("Basic tests: mean for invalid data", function() {
+    it("Basic tests: mean for invalid data", function() {
         let avg = Rainfall.mean("Rome", data2);
         console.info(avg)
         // assertFuzzyEquals(avg, 70.1); 
@@ -56,3 +56,13 @@ describe("Tests with invalid data", function() {
         assertFuzzyEquals(avg, -1);
     });
 });
+describe("Get town rainfall records", () => {
+    it("should return -1 when nothing is found", function() {
+        let result = Rainfall.getTownRainfallRecords("Beijing", data2);
+        expect(result).toBe("-1");
+    });
+    it("should return string for NY", function() {
+        let result = Rainfall.getTownRainfallRecords("NY", data2);
+        expect(result).toBe("Jan 128.7,Feb 121.8,Mar 151.9,Apr 93.5,May 98.8,Jun 93.6,Jul 142.2,Aug 131.8,Sep 92.0,Oct 82.3,Nov 107.8,Dec 94.2");
+    });
+})
