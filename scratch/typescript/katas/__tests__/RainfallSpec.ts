@@ -57,7 +57,6 @@ describe("Tests with invalid data", function() {
     it("should return the average for 11 records", () => {
         const romeArray = [ 73.2, 80.3, 55.7, 53, 36.4, 17.5, 27.5, 60.9, 147.7, 121, 97.9 ];
         const romeAvg = romeArray.reduce((acc, red) => acc + red, 0) / romeArray.length;
-        console.info(romeAvg);
     })
 });
 describe("Get town rainfall string records", () => {

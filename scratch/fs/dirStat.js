@@ -18,4 +18,4 @@ const _getAllFilesFromFolder = (dir) => {
 
 };
 
-console.info(_getAllFilesFromFolder(".."));
+console.info(_getAllFilesFromFolder("."));
