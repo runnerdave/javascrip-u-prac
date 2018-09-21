@@ -15,7 +15,7 @@ dnaStrand("GTAT") # return "CATA"
  */
 
 export default class DNA {
-    static pairs = {A:"T", T:"A", C:"G", G:"C"};
+    static pairs:any = {A:"T", T:"A", C:"G", G:"C"};
 
     static dnaStrand(dna: string) {
         return dna.split("").map(x => this.pairs[x]).join("");

@@ -22,8 +22,27 @@ solution:
 
 v = d/t
 
-d1 = v1 * t
-d2 = v2 * t
+
+time for B to cover lead:
+Tb1 = lead / Vb
+distance covered by A while B reached the lead:
+Da1 = Va * Tb1 = Va * (lead / Vb)
+time for B to cover Da1:
+Tb2 = Da1 / Vb
+Distance covered by A during Tb2:
+Da2 = Va * Tb2 = Va * (Da1 / Vb) = Va * (Va * lead / (Vb * Vb)) = Va^2 / Vb^2 * lead
 
 */
 
+export const race = (Va: number, Vb: number, lead: number): number[] => {
+    if (Va > Vb) return null;
+
+    // let totalSeconds = lead / (Va - Va * Va / Vb);
+    let totalSeconds = lead / (Vb -  Va) * 3600;
+    const hours = Math.floor(totalSeconds / 3600);
+    totalSeconds %= 3600;
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = Math.floor(totalSeconds % 60);
+
+    return [hours, minutes, seconds];
+}
