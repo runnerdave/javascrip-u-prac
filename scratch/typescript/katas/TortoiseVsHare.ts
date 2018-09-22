@@ -2,7 +2,8 @@
  * Two tortoises named A and B must run a race. A starts with an average speed of 720 feet per hour. 
  * Young B knows she runs faster than A, and furthermore has not finished her cabbage.
 
-When she starts, at last, she can see that A has a 70 feet lead but B's speed is 850 feet per hour. How long will it take B to catch A?
+When she starts, at last, she can see that A has a 70 feet lead but B's speed is 850 feet per hour. 
+How long will it take B to catch A?
 
 More generally: given two speeds v1 (A's speed, integer > 0) and v2 (B's speed, integer > 0) 
 and a lead g (integer > 0) how long will it take B to catch A?
@@ -22,22 +23,17 @@ solution:
 
 v = d/t
 
+relative speed: v2 - v1
 
-time for B to cover lead:
-Tb1 = lead / Vb
-distance covered by A while B reached the lead:
-Da1 = Va * Tb1 = Va * (lead / Vb)
-time for B to cover Da1:
-Tb2 = Da1 / Vb
-Distance covered by A during Tb2:
-Da2 = Va * Tb2 = Va * (Da1 / Vb) = Va * (Va * lead / (Vb * Vb)) = Va^2 / Vb^2 * lead
+time for B to cover lead and catch A:
+Tb = lead / (v2 - v1)
+
 
 */
 
 export const race = (Va: number, Vb: number, lead: number): number[] => {
     if (Va > Vb) return null;
 
-    // let totalSeconds = lead / (Va - Va * Va / Vb);
     let totalSeconds = lead / (Vb -  Va) * 3600;
     const hours = Math.floor(totalSeconds / 3600);
     totalSeconds %= 3600;
